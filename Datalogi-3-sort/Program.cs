@@ -52,4 +52,36 @@ static void TestMergeSort()
     }
     Console.WriteLine("");
 }
-TestMergeSort();
+//TestMergeSort();
+
+static void TestQuicksort()
+{
+    Console.WriteLine("Quicksort test");
+    Random random = new Random();
+    //int[] array = new int[] { 1817, 2627, 3773, 2884, 3764 };
+    //int[] array = new int[] { 3020, 4164, 1692, 2424, 1416 };
+    int[] array = new int[20];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = random.Next(0, 5000);
+    }
+    Console.WriteLine("-- before");
+    foreach (var x in array)
+    {
+        Console.WriteLine(x);
+    }
+	Console.WriteLine("-- after");
+    Quicksort.Sort(array);
+
+    int x0 = array[0] - 1;
+    foreach (var x in array)
+    {
+        Console.WriteLine(x);
+		if (x < x0) Console.WriteLine("** OSORTERAT **");
+        x0 = x;
+    }
+    Console.WriteLine("");
+}
+TestQuicksort();
+
+
